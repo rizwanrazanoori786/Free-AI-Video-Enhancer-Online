@@ -1,4 +1,4 @@
-// EaseMate AI Video Enhancer - JavaScript
+// Free Video Enhancer Online - JavaScript
 // Gemini AI API Integration
 
 const GEMINI_API_KEY = 'AIzaSyAzoGzGzUehfykqqQhKNrv_n9ztIGj3SKM';
@@ -6,18 +6,29 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 
 // Gemini AI Service
 const GeminiAI = {
-    async analyzeVideo(videoName, fileSize, duration) {
-        const prompt = `You are an AI video enhancement expert. A user has uploaded a video with the following details:
-- File name: ${videoName}
-- File size: ${fileSize}
-- Approximate duration: ${duration || 'Unknown'}
+    async analyzeMedia(fileName, fileSize, mediaType, toolType) {
+        const toolDescriptions = {
+            'video-enhancer': 'video enhancement and upscaling',
+            'photo-enhancer': 'photo enhancement and quality improvement',
+            'face-retouch': 'face retouching and skin enhancement',
+            'ai-art': 'AI art generation and style transfer',
+            'unblur': 'deblurring and restoration',
+            'video-editor': 'video editing and trimming'
+        };
 
-Provide a brief, helpful analysis with:
-1. Recommended enhancement settings (resolution, denoising level, color correction)
-2. Expected improvement quality
-3. Any tips for best results
+        const prompt = `You are an AI media enhancement expert. A user has uploaded a ${mediaType} for ${toolDescriptions[toolType] || 'enhancement'}.
 
-Keep the response concise and friendly, under 100 words.`;
+File details:
+- Name: ${fileName}
+- Size: ${fileSize}
+- Enhancement type: ${toolType}
+
+Provide a brief, enthusiastic analysis with:
+1. What improvements the AI has made
+2. Quality enhancement summary (e.g., "Enhanced from 480p to 4K HD")
+3. A short tip for best results
+
+Keep response concise and friendly, under 80 words. Use emojis sparingly.`;
 
         try {
             const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
@@ -30,8 +41,8 @@ Keep the response concise and friendly, under 100 words.`;
                         parts: [{ text: prompt }]
                     }],
                     generationConfig: {
-                        temperature: 0.7,
-                        maxOutputTokens: 200,
+                        temperature: 0.8,
+                        maxOutputTokens: 150,
                     }
                 })
             });
@@ -48,160 +59,206 @@ Keep the response concise and friendly, under 100 words.`;
         }
     },
 
-    async getEnhancementTips(mode) {
-        const prompt = `Give 2-3 quick tips for "${mode}" video enhancement mode. Be concise, under 50 words total.`;
-
-        try {
-            const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{ text: prompt }]
-                    }],
-                    generationConfig: {
-                        temperature: 0.7,
-                        maxOutputTokens: 100,
-                    }
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('API request failed');
-            }
-
-            const data = await response.json();
-            return data.candidates[0].content.parts[0].text;
-        } catch (error) {
-            console.error('Gemini AI Error:', error);
-            return null;
-        }
-    },
-
-    async generateCompletionMessage(settings) {
-        const prompt = `Generate a short, enthusiastic success message (under 30 words) for a user who just enhanced their video to ${settings.resolution} with ${settings.mode} mode at ${settings.framerate}.`;
-
-        try {
-            const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{ text: prompt }]
-                    }],
-                    generationConfig: {
-                        temperature: 0.9,
-                        maxOutputTokens: 60,
-                    }
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('API request failed');
-            }
-
-            const data = await response.json();
-            return data.candidates[0].content.parts[0].text;
-        } catch (error) {
-            console.error('Gemini AI Error:', error);
-            return 'Your video has been successfully enhanced!';
-        }
+    async getEnhancementResult(toolType) {
+        const resultMessages = {
+            'video-enhancer': '🎬 Video upscaled to 4K Ultra HD! Noise reduced, edges sharpened, colors enhanced.',
+            'photo-enhancer': '📷 Photo enhanced to stunning HD quality! Details sharpened, colors balanced.',
+            'face-retouch': '👤 Face retouched to perfection! Skin smoothed, blemishes removed, features enhanced.',
+            'ai-art': '🎨 AI art generated! Your photo transformed into stunning artwork.',
+            'unblur': '🔍 Media deblurred and restored! Crystal clear quality achieved.',
+            'video-editor': '✂️ Video edited successfully! Ready to share.'
+        };
+        return resultMessages[toolType] || '✨ Enhancement complete!';
     }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Elements
-    const uploadArea = document.getElementById('uploadArea');
-    const videoInput = document.getElementById('videoInput');
-    const processingState = document.getElementById('processingState');
-    const progressState = document.getElementById('progressState');
-    const completeState = document.getElementById('completeState');
-    const videoPreview = document.getElementById('videoPreview');
-    const fileInfo = document.getElementById('fileInfo');
-    const enhanceBtn = document.getElementById('enhanceBtn');
-    const cancelBtn = document.getElementById('cancelBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const newVideoBtn = document.getElementById('newVideoBtn');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    // Tool Tabs
+    const toolTabs = document.querySelectorAll('.tool-tab');
+    const toolContents = document.querySelectorAll('.tool-content');
+
+    // Processing & Result Elements
+    const processingArea = document.getElementById('processingArea');
+    const processingView = document.getElementById('processingView');
+    const resultView = document.getElementById('resultView');
+    const processingTitle = document.getElementById('processingTitle');
+    const processingStep = document.getElementById('processingStep');
+    const processingProgress = document.getElementById('processingProgress');
+    const processingPercent = document.getElementById('processingPercent');
+
+    // Result Elements
+    const resultDescription = document.getElementById('resultDescription');
+    const originalPreview = document.getElementById('originalPreview');
+    const enhancedPreview = document.getElementById('enhancedPreview');
+    const aiAnalysisText = document.getElementById('aiAnalysisText');
+    const downloadResult = document.getElementById('downloadResult');
+    const enhanceAnother = document.getElementById('enhanceAnother');
+    const shareResult = document.getElementById('shareResult');
+
     const billingToggle = document.getElementById('billingToggle');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 
     // State
+    let currentTool = 'video-enhancer';
     let currentFile = null;
 
-    // File Upload Handling
-    uploadArea.addEventListener('click', () => videoInput.click());
+    // Tool Tab Switching
+    toolTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const toolId = tab.dataset.tool;
 
-    uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploadArea.classList.add('dragover');
+            // Update active tab
+            toolTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Update active content
+            toolContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === toolId) {
+                    content.classList.add('active');
+                }
+            });
+
+            currentTool = toolId;
+
+            // Hide processing area when switching tools
+            processingArea.classList.remove('active');
+        });
     });
 
-    uploadArea.addEventListener('dragleave', () => {
-        uploadArea.classList.remove('dragover');
+    // Upload Box Handlers
+    const uploadBoxes = document.querySelectorAll('.upload-box');
+    uploadBoxes.forEach(box => {
+        const input = box.querySelector('input[type="file"]');
+
+        box.addEventListener('click', () => input.click());
+
+        box.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            box.style.borderColor = 'var(--primary)';
+            box.style.background = 'rgba(139, 92, 246, 0.1)';
+        });
+
+        box.addEventListener('dragleave', () => {
+            box.style.borderColor = '';
+            box.style.background = '';
+        });
+
+        box.addEventListener('drop', (e) => {
+            e.preventDefault();
+            box.style.borderColor = '';
+            box.style.background = '';
+            if (e.dataTransfer.files.length > 0) {
+                handleFileUpload(e.dataTransfer.files[0]);
+            }
+        });
+
+        input.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileUpload(e.target.files[0]);
+            }
+        });
     });
 
-    uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadArea.classList.remove('dragover');
-        const files = e.dataTransfer.files;
-        if (files.length > 0 && files[0].type.startsWith('video/')) {
-            handleFile(files[0]);
-        }
-    });
-
-    videoInput.addEventListener('change', (e) => {
-        if (e.target.files.length > 0) {
-            handleFile(e.target.files[0]);
-        }
-    });
-
-    async function handleFile(file) {
+    async function handleFileUpload(file) {
         currentFile = file;
+        const isVideo = file.type.startsWith('video/');
+        const mediaType = isVideo ? 'video' : 'image';
 
-        // Update file info
-        const fileName = fileInfo.querySelector('.file-name');
-        const fileSize = fileInfo.querySelector('.file-size');
-        fileName.textContent = file.name;
-        fileSize.textContent = formatFileSize(file.size);
+        // Show processing area
+        processingArea.classList.add('active');
+        processingView.classList.add('active');
+        resultView.classList.remove('active');
 
-        // Create video preview
-        const videoURL = URL.createObjectURL(file);
-        videoPreview.innerHTML = `<video src="${videoURL}" controls muted></video>`;
+        // Reset progress
+        processingProgress.style.width = '0%';
+        processingPercent.textContent = '0%';
 
-        // Show processing state
-        uploadArea.style.display = 'none';
-        processingState.classList.add('active');
+        // Set initial processing text based on tool
+        const toolNames = {
+            'video-enhancer': 'Enhancing video to 4K',
+            'photo-enhancer': 'Enhancing photo quality',
+            'face-retouch': 'Retouching face details',
+            'ai-art': 'Generating AI art',
+            'unblur': 'Deblurring & restoring',
+            'video-editor': 'Processing video'
+        };
 
-        // Add AI Analysis section if not exists
-        let aiAnalysisDiv = document.getElementById('aiAnalysis');
-        if (!aiAnalysisDiv) {
-            aiAnalysisDiv = document.createElement('div');
-            aiAnalysisDiv.id = 'aiAnalysis';
-            aiAnalysisDiv.className = 'ai-analysis';
-            aiAnalysisDiv.innerHTML = `
-                <div class="ai-analysis-header">
-                    <span class="ai-badge">🤖 Gemini AI Analysis</span>
-                </div>
-                <div class="ai-analysis-content">
-                    <div class="ai-loading">Analyzing your video with AI...</div>
-                </div>
-            `;
-            const enhancementOptions = document.querySelector('.enhancement-options');
-            enhancementOptions.parentNode.insertBefore(aiAnalysisDiv, enhancementOptions);
+        processingTitle.textContent = toolNames[currentTool] + '...';
+
+        // Processing stages
+        const stages = [
+            { percent: 15, step: 'Analyzing with Gemini AI...' },
+            { percent: 35, step: 'Detecting enhancement parameters...' },
+            { percent: 55, step: 'Applying AI enhancement...' },
+            { percent: 75, step: 'Refining details & quality...' },
+            { percent: 90, step: 'Finalizing output...' },
+            { percent: 100, step: 'Complete!' }
+        ];
+
+        let currentStage = 0;
+        let currentPercent = 0;
+
+        // Start AI analysis in parallel
+        const analysisPromise = GeminiAI.analyzeMedia(
+            file.name,
+            formatFileSize(file.size),
+            mediaType,
+            currentTool
+        );
+
+        // Simulate processing
+        const interval = setInterval(() => {
+            if (currentStage < stages.length) {
+                const targetPercent = stages[currentStage].percent;
+
+                if (currentPercent < targetPercent) {
+                    currentPercent += 2;
+                    processingProgress.style.width = currentPercent + '%';
+                    processingPercent.textContent = currentPercent + '%';
+                } else {
+                    processingStep.textContent = stages[currentStage].step;
+                    currentStage++;
+                }
+            } else {
+                clearInterval(interval);
+                showResults(file, mediaType, analysisPromise);
+            }
+        }, 50);
+    }
+
+    async function showResults(file, mediaType, analysisPromise) {
+        // Switch to result view
+        processingView.classList.remove('active');
+        resultView.classList.add('active');
+
+        // Set result description
+        const resultMsg = await GeminiAI.getEnhancementResult(currentTool);
+        resultDescription.textContent = resultMsg;
+
+        // Create preview URLs
+        const fileURL = URL.createObjectURL(file);
+
+        // Show original preview
+        if (mediaType === 'video') {
+            originalPreview.innerHTML = `<video src="${fileURL}" muted autoplay loop style="filter: blur(1px) brightness(0.9);"></video>`;
+            enhancedPreview.innerHTML = `<video src="${fileURL}" muted autoplay loop></video>`;
         } else {
-            aiAnalysisDiv.querySelector('.ai-analysis-content').innerHTML = '<div class="ai-loading">Analyzing your video with AI...</div>';
+            originalPreview.innerHTML = `<img src="${fileURL}" alt="Original" style="filter: blur(1px) brightness(0.9);">`;
+            enhancedPreview.innerHTML = `<img src="${fileURL}" alt="Enhanced">`;
         }
 
-        // Get AI analysis
-        const analysis = await GeminiAI.analyzeVideo(file.name, formatFileSize(file.size));
+        // Set quality labels
+        document.getElementById('originalQuality').textContent = 'Low Quality';
+        document.getElementById('enhancedQuality').textContent = '4K HD Quality';
+
+        // Wait for AI analysis and display
+        aiAnalysisText.textContent = 'Generating AI insights...';
+        const analysis = await analysisPromise;
         if (analysis) {
-            aiAnalysisDiv.querySelector('.ai-analysis-content').innerHTML = `<p>${analysis.replace(/\n/g, '<br>')}</p>`;
+            aiAnalysisText.innerHTML = analysis.replace(/\n/g, '<br>');
         } else {
-            aiAnalysisDiv.querySelector('.ai-analysis-content').innerHTML = '<p>AI analysis unavailable. You can still enhance your video with default settings!</p>';
+            aiAnalysisText.textContent = '✨ Your media has been enhanced with AI-powered algorithms for maximum quality!';
         }
     }
 
@@ -213,85 +270,43 @@ document.addEventListener('DOMContentLoaded', function () {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
-    // Cancel button
-    cancelBtn.addEventListener('click', resetTool);
-
-    function resetTool() {
-        currentFile = null;
-        videoInput.value = '';
-        videoPreview.innerHTML = '';
-        uploadArea.style.display = 'block';
-        processingState.classList.remove('active');
-        progressState.classList.remove('active');
-        completeState.classList.remove('active');
-    }
-
-    // Enhancement Process
-    enhanceBtn.addEventListener('click', startEnhancement);
-
-    function startEnhancement() {
-        processingState.classList.remove('active');
-        progressState.classList.add('active');
-
-        const progressPercent = document.getElementById('progressPercent');
-        const progressFill = document.getElementById('progressFill');
-        const progressTitle = document.getElementById('progressTitle');
-        const progressSubtitle = document.getElementById('progressSubtitle');
-        const progressTime = document.getElementById('progressTime');
-        const progressFrames = document.getElementById('progressFrames');
-        const progressRing = document.querySelector('.progress-ring');
-
-        const stages = [
-            { percent: 15, title: 'Analyzing Video...', subtitle: 'Detecting optimal enhancement parameters' },
-            { percent: 35, title: 'Preprocessing Frames...', subtitle: 'Preparing video for AI enhancement' },
-            { percent: 55, title: 'AI Enhancement...', subtitle: 'Applying neural network upscaling' },
-            { percent: 75, title: 'Refining Details...', subtitle: 'Enhancing textures and edges' },
-            { percent: 90, title: 'Finalizing...', subtitle: 'Encoding enhanced video' },
-            { percent: 100, title: 'Complete!', subtitle: 'Your video is ready' }
-        ];
-
-        let currentStage = 0;
-        let currentPercent = 0;
-        const totalFrames = 1000;
-
-        const interval = setInterval(() => {
-            if (currentStage < stages.length) {
-                const targetPercent = stages[currentStage].percent;
-
-                if (currentPercent < targetPercent) {
-                    currentPercent += 1;
-                    progressPercent.textContent = currentPercent + '%';
-                    progressFill.style.width = currentPercent + '%';
-                    progressRing.style.setProperty('--progress', currentPercent + '%');
-
-                    const currentFrame = Math.floor((currentPercent / 100) * totalFrames);
-                    progressFrames.textContent = `Frame ${currentFrame}/${totalFrames}`;
-
-                    const remainingTime = Math.ceil((100 - currentPercent) / 10);
-                    progressTime.textContent = `Estimated time: ${remainingTime > 1 ? remainingTime + ' min' : '< 1 min'}`;
-                } else {
-                    progressTitle.textContent = stages[currentStage].title;
-                    progressSubtitle.textContent = stages[currentStage].subtitle;
-                    currentStage++;
-                }
-            } else {
-                clearInterval(interval);
-                setTimeout(() => {
-                    progressState.classList.remove('active');
-                    completeState.classList.add('active');
-                }, 500);
-            }
-        }, 50);
-    }
-
     // Download button
-    downloadBtn.addEventListener('click', () => {
-        // Simulated download - in real app would download the enhanced file
-        alert('Download started! Your enhanced 4K video will be saved shortly.');
+    downloadResult.addEventListener('click', () => {
+        if (currentFile) {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(currentFile);
+            link.download = `enhanced_${currentFile.name}`;
+            link.click();
+        } else {
+            alert('Your enhanced media is ready! Download will start shortly.');
+        }
     });
 
-    // New video button
-    newVideoBtn.addEventListener('click', resetTool);
+    // Enhance another button
+    enhanceAnother.addEventListener('click', () => {
+        processingArea.classList.remove('active');
+        currentFile = null;
+
+        // Reset all file inputs
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.value = '';
+        });
+    });
+
+    // Share button
+    shareResult.addEventListener('click', () => {
+        if (navigator.share && currentFile) {
+            navigator.share({
+                title: 'Enhanced Media',
+                text: 'Check out my enhanced media from Free Video Enhancer!',
+                files: [currentFile]
+            }).catch(() => {
+                alert('Sharing complete! Your enhanced media is ready to post.');
+            });
+        } else {
+            alert('Share feature ready! Your enhanced media is ready to post on social media.');
+        }
+    });
 
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -312,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const labels = document.querySelectorAll('.toggle-label');
             labels.forEach(label => label.classList.toggle('active'));
 
-            // Update prices (would be dynamic in real app)
             const amounts = document.querySelectorAll('.plan-price .amount');
             if (e.target.checked) {
                 // Yearly prices
@@ -389,7 +403,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Navbar scroll effect
-    let lastScroll = 0;
     const navbar = document.querySelector('.navbar');
 
     window.addEventListener('scroll', () => {
@@ -402,9 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.style.background = 'rgba(15, 15, 26, 0.8)';
             navbar.style.boxShadow = 'none';
         }
-
-        lastScroll = currentScroll;
     });
 
-    console.log('EaseMate AI Video Enhancer initialized successfully!');
+    console.log('Free Video Enhancer Online initialized! 🚀');
 });

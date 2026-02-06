@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Free AI Video Enhancer Online - Upscale your videos to 4K quality with Free Video Enhancer.">
-    <title>Free Video Enhancer Online | AI Video Upscaler to 4K</title>
+        content="Free AI Video Enhancer Online - Unblur, restore, upscale videos to 4K HD. Photo retouch, AI art generator, face enhancer & more.">
+    <title>Free Video Enhancer Online | AI Video & Photo Enhancer to 4K HD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -24,18 +24,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">✦</div>
-                <span>Free Video <span class="accent">Enhancer</span></span>
+                <img src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                    alt="Logo" class="logo-img">
             </a>
             <ul class="nav-links">
+                <li><a href="#tools">AI Tools</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="btn-ghost">Sign In</a>
-                <a href="#enhancer" class="btn-primary">Try Free</a>
+                <a href="login.html" class="btn-ghost" id="loginBtn">Sign In</a>
+                <a href="#tools" class="btn-primary">Try Free</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
@@ -43,406 +43,485 @@
 
     <header class="hero">
         <div class="hero-content">
-            <div class="badge">✨ Powered by Advanced AI Technology</div>
-            <h1>Free AI Video <span class="gradient-text">Enhancer</span> Online</h1>
-            <p class="hero-description">Enhance video quality frame by frame with our AI. Our free video enhancer
-                makes it easy and efficient to upscale low-quality videos into stunning 4K resolution online.</p>
+            <div class="badge">✨ AI-Powered Video & Photo Enhancement</div>
+            <h1>AI Video Enhancer & <span class="gradient-text">Photo Editor</span></h1>
+            <p class="hero-description">Fix blurry videos instantly and transform low-quality clips into 4K/HD clarity.
+                Unblur, restore, enhance, retouch faces, generate AI art - all in one powerful tool!</p>
             <div class="hero-stats">
-                <div class="stat"><span class="stat-number">4K</span><span class="stat-label">Resolution</span></div>
+                <div class="stat"><span class="stat-number">4K</span><span class="stat-label">Ultra HD</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat"><span class="stat-number">60</span><span class="stat-label">FPS Support</span></div>
+                <div class="stat"><span class="stat-number">10+</span><span class="stat-label">AI Tools</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat"><span class="stat-number">10M+</span><span class="stat-label">Videos Enhanced</span>
-                </div>
+                <div class="stat"><span class="stat-number">Free</span><span class="stat-label">To Use</span></div>
             </div>
             <div class="hero-cta">
-                <a href="#enhancer" class="btn-primary btn-large">▶ Enhance Your Video Now</a>
-                <a href="#how-it-works" class="btn-secondary btn-large">Learn More →</a>
+                <a href="#tools" class="btn-primary btn-large">🚀 Start Enhancing Free</a>
+                <a href="#features" class="btn-secondary btn-large">See All Features →</a>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="video-comparison">
-                <div class="comparison-side before">
-                    <div class="comparison-label">Before</div>
-                    <div class="comparison-quality">480p</div>
-                    <div class="video-placeholder">
-                        <div class="blur-effect"></div>
+            <div class="result-showcase">
+                <div class="showcase-before">
+                    <span class="showcase-label">Before</span>
+                    <div class="showcase-image blurry">
+                        <div class="blur-overlay"></div>
+                        <span class="quality-tag">480p Blurry</span>
                     </div>
                 </div>
-                <div class="comparison-divider">
-                    <div class="slider-handle">⟷</div>
-                </div>
-                <div class="comparison-side after">
-                    <div class="comparison-label">After</div>
-                    <div class="comparison-quality">4K</div>
-                    <div class="video-placeholder enhanced"></div>
+                <div class="showcase-arrow">→</div>
+                <div class="showcase-after">
+                    <span class="showcase-label">After AI Enhancement</span>
+                    <div class="showcase-image enhanced">
+                        <span class="quality-tag success">4K HD Clear</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="brands-section">
-        <div class="container">
-            <p class="brands-title">Trusted by creators from</p>
-            <div class="brands-logos">
-                <div class="brand-logo">YouTube</div>
-                <div class="brand-logo">TikTok</div>
-                <div class="brand-logo">Instagram</div>
-                <div class="brand-logo">Vimeo</div>
-                <div class="brand-logo">Netflix</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="enhancer-section" id="enhancer">
+    <!-- AI Tools Section -->
+    <section class="tools-section" id="tools">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">AI Video Enhancer</span>
-                <h2>Enhance Your Video in <span class="gradient-text">Seconds</span></h2>
-                <p>Upload your video and let our AI do the magic. No software installation required.</p>
+                <span class="section-badge">🏅 TOP AI TOOLS</span>
+                <h2>All-in-One AI <span class="gradient-text">Enhancement Suite</span></h2>
+                <p>Professional-grade AI tools to enhance your videos and photos instantly</p>
             </div>
 
-            <div class="enhancer-tool">
-                <div class="upload-area" id="uploadArea">
-                    <div class="upload-icon">⬆</div>
-                    <h3>Drag & Drop Your Video Here</h3>
-                    <p>or click to browse files</p>
-                    <div class="upload-formats">
-                        <span>Supported: MP4, MOV, AVI, MKV, WebM</span>
-                        <span>Max size: 500MB (Free) • 5GB (Pro)</span>
-                    </div>
-                    <input type="file" id="videoInput" accept="video/*" hidden>
-                </div>
+            <!-- Tool Tabs -->
+            <div class="tool-tabs">
+                <button class="tool-tab active" data-tool="video-enhancer">
+                    <span class="tab-icon">🎬</span>
+                    <span class="tab-text">Video Enhancer</span>
+                </button>
+                <button class="tool-tab" data-tool="photo-enhancer">
+                    <span class="tab-icon">📷</span>
+                    <span class="tab-text">Photo Enhancer</span>
+                </button>
+                <button class="tool-tab" data-tool="face-retouch">
+                    <span class="tab-icon">👤</span>
+                    <span class="tab-text">Face Retouch</span>
+                </button>
+                <button class="tool-tab" data-tool="ai-art">
+                    <span class="tab-icon">🎨</span>
+                    <span class="tab-text">AI Art Generator</span>
+                </button>
+                <button class="tool-tab" data-tool="unblur">
+                    <span class="tab-icon">🔍</span>
+                    <span class="tab-text">Unblur & Restore</span>
+                </button>
+                <button class="tool-tab" data-tool="video-editor">
+                    <span class="tab-icon">✂️</span>
+                    <span class="tab-text">Video Editor</span>
+                </button>
+            </div>
 
-                <div class="processing-state" id="processingState">
-                    <div class="video-preview" id="videoPreview"></div>
-                    <div class="processing-info">
-                        <div class="file-info" id="fileInfo"><span class="file-name">video.mp4</span><span
-                                class="file-size">25.4 MB</span></div>
-                        <div class="enhancement-options">
-                            <h4>Enhancement Settings</h4>
-                            <div class="options-grid">
-                                <div class="option-card"><label class="option-label"><span class="option-title">Output
-                                            Resolution</span><select id="resolution">
-                                            <option value="1080p">1080p HD</option>
-                                            <option value="2k">2K QHD</option>
-                                            <option value="4k" selected>4K Ultra HD</option>
-                                            <option value="8k">8K (Pro)</option>
-                                        </select></label></div>
-                                <div class="option-card"><label class="option-label"><span
-                                            class="option-title">Enhancement Mode</span><select id="mode">
-                                            <option value="standard">Standard</option>
-                                            <option value="denoise" selected>Denoise + Enhance</option>
-                                            <option value="anime">Anime Mode</option>
-                                            <option value="face">Face Enhancement</option>
-                                        </select></label></div>
-                                <div class="option-card"><label class="option-label"><span class="option-title">Frame
-                                            Rate</span><select id="framerate">
-                                            <option value="original">Keep Original</option>
-                                            <option value="30">30 FPS</option>
-                                            <option value="60" selected>60 FPS</option>
-                                            <option value="120">120 FPS (Pro)</option>
-                                        </select></label></div>
-                                <div class="option-card"><label class="option-label"><span class="option-title">Color
-                                            Enhancement</span><select id="color">
-                                            <option value="none">None</option>
-                                            <option value="auto" selected>Auto Balance</option>
-                                            <option value="vivid">Vivid Colors</option>
-                                            <option value="hdr">HDR Effect</option>
-                                        </select></label></div>
-                            </div>
-                        </div>
-                        <div class="enhance-actions">
-                            <button class="btn-outline" id="cancelBtn">Cancel</button>
-                            <button class="btn-primary btn-large" id="enhanceBtn">✨ Start Enhancement</button>
+            <!-- Tool Content Areas -->
+            <div class="tool-content-wrapper">
+                <!-- Video Enhancer Tool -->
+                <div class="tool-content active" id="video-enhancer">
+                    <div class="tool-info">
+                        <h3>⚡ AI Video Enhancer</h3>
+                        <p>Unblur, restore, upscale, and enhance video quality to ultra HD/4K resolution with advanced
+                            AI algorithms.</p>
+                        <ul class="tool-features-list">
+                            <li>✓ Fix blur & sharpen edges instantly</li>
+                            <li>✓ Upscale to 4K Ultra HD quality</li>
+                            <li>✓ Reduce noise & grain</li>
+                            <li>✓ Restore old/damaged videos</li>
+                            <li>✓ Batch process multiple videos</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="videoUploadBox">
+                            <div class="upload-icon">🎬</div>
+                            <h4>Drop Video Here</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">MP4, MOV, AVI, MKV • Max 500MB</span>
+                            <input type="file" id="videoFileInput" accept="video/*" hidden>
                         </div>
                     </div>
                 </div>
 
-                <div class="progress-state" id="progressState">
-                    <div class="progress-container">
-                        <div class="progress-visual">
-                            <div class="progress-ring"><span class="progress-percent" id="progressPercent">0%</span>
-                            </div>
-                        </div>
-                        <div class="progress-info">
-                            <h3 id="progressTitle">Analyzing Video...</h3>
-                            <p id="progressSubtitle">Detecting optimal enhancement parameters</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="progressFill"></div>
-                            </div>
-                            <div class="progress-stats"><span id="progressTime">Estimated time: 2 min</span><span
-                                    id="progressFrames">Frame 0/1000</span></div>
+                <!-- Photo Enhancer Tool -->
+                <div class="tool-content" id="photo-enhancer">
+                    <div class="tool-info">
+                        <h3>📷 AI Photo Enhancer</h3>
+                        <p>Transform low-quality photos into stunning HD images with AI-powered enhancement.</p>
+                        <ul class="tool-features-list">
+                            <li>✓ Enhance photo quality instantly</li>
+                            <li>✓ Increase resolution up to 4x</li>
+                            <li>✓ Auto color correction</li>
+                            <li>✓ Remove noise & artifacts</li>
+                            <li>✓ Batch enhance multiple photos</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="photoUploadBox">
+                            <div class="upload-icon">📷</div>
+                            <h4>Drop Photo Here</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">JPG, PNG, WebP • Max 50MB</span>
+                            <input type="file" id="photoFileInput" accept="image/*" hidden>
                         </div>
                     </div>
                 </div>
 
-                <div class="complete-state" id="completeState">
-                    <div class="complete-content">
-                        <div class="success-icon">✓</div>
-                        <h3>Enhancement Complete!</h3>
-                        <p>Your video has been enhanced to 4K resolution</p>
-                        <div class="result-preview">
-                            <div class="result-comparison">
-                                <div class="result-before"><span>Original</span>
-                                    <div class="result-thumbnail"></div>
-                                </div>
-                                <div class="result-arrow">→</div>
-                                <div class="result-after"><span>Enhanced 4K</span>
-                                    <div class="result-thumbnail enhanced"></div>
-                                </div>
+                <!-- Face Retouch Tool -->
+                <div class="tool-content" id="face-retouch">
+                    <div class="tool-info">
+                        <h3>👤 Face Retouch & Enhancement</h3>
+                        <p>Professional face retouching: remove acne, clear blemishes, enhance selfie details.</p>
+                        <ul class="tool-features-list">
+                            <li>✓ Acne & blemish remover</li>
+                            <li>✓ Skin smoothing & enhancement</li>
+                            <li>✓ Eye brightness & sharpening</li>
+                            <li>✓ Face reshaping tools</li>
+                            <li>✓ Perfect selfie enhancement</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="faceUploadBox">
+                            <div class="upload-icon">🤳</div>
+                            <h4>Drop Selfie/Portrait Here</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">JPG, PNG • Max 50MB</span>
+                            <input type="file" id="faceFileInput" accept="image/*" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Art Generator Tool -->
+                <div class="tool-content" id="ai-art">
+                    <div class="tool-info">
+                        <h3>🎨 AI Art Generator</h3>
+                        <p>Generate AI realistic avatars, cartoon yourself, create unique art with AI filters & effects.
+                        </p>
+                        <ul class="tool-features-list">
+                            <li>✓ AI Avatar Maker</li>
+                            <li>✓ Cartoon & Anime styles</li>
+                            <li>✓ Yearbook photo effects</li>
+                            <li>✓ AI artistic filters</li>
+                            <li>✓ One-click art generation</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="artUploadBox">
+                            <div class="upload-icon">🎨</div>
+                            <h4>Drop Photo for AI Art</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">JPG, PNG • Max 50MB</span>
+                            <input type="file" id="artFileInput" accept="image/*" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unblur Tool -->
+                <div class="tool-content" id="unblur">
+                    <div class="tool-info">
+                        <h3>🔍 Unblur & Restore</h3>
+                        <p>Fix blurry photos and videos instantly. Restore old, damaged, low-resolution media.</p>
+                        <ul class="tool-features-list">
+                            <li>✓ Deblur photos & videos</li>
+                            <li>✓ Fix motion blur</li>
+                            <li>✓ Restore old photographs</li>
+                            <li>✓ Recover damaged media</li>
+                            <li>✓ Sharpen & clarify details</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="unblurUploadBox">
+                            <div class="upload-icon">🔍</div>
+                            <h4>Drop Blurry Media Here</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">Videos & Images supported</span>
+                            <input type="file" id="unblurFileInput" accept="image/*,video/*" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Editor Tool -->
+                <div class="tool-content" id="video-editor">
+                    <div class="tool-info">
+                        <h3>✂️ Video Editor & Cutter</h3>
+                        <p>Trim, cut, add music, apply effects - complete video editing suite.</p>
+                        <ul class="tool-features-list">
+                            <li>✓ Video cutter & trimmer</li>
+                            <li>✓ Add background music</li>
+                            <li>✓ Apply filters & effects</li>
+                            <li>✓ Crop & resize videos</li>
+                            <li>✓ Export in multiple formats</li>
+                        </ul>
+                    </div>
+                    <div class="tool-upload-area">
+                        <div class="upload-box" id="editorUploadBox">
+                            <div class="upload-icon">✂️</div>
+                            <h4>Drop Video to Edit</h4>
+                            <p>or click to browse</p>
+                            <span class="upload-formats">MP4, MOV, AVI • Max 500MB</span>
+                            <input type="file" id="editorFileInput" accept="video/*" hidden>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing & Result Area -->
+            <div class="processing-result-area" id="processingArea">
+                <div class="processing-view" id="processingView">
+                    <div class="processing-animation">
+                        <div class="processing-spinner"></div>
+                        <h3 id="processingTitle">AI is enhancing your media...</h3>
+                        <p id="processingStep">Analyzing content with Gemini AI</p>
+                        <div class="processing-progress">
+                            <div class="progress-bar-outer">
+                                <div class="progress-bar-inner" id="processingProgress"></div>
+                            </div>
+                            <span id="processingPercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-view" id="resultView">
+                    <div class="result-header">
+                        <h3>✨ Enhancement Complete!</h3>
+                        <p id="resultDescription">Your media has been enhanced to stunning quality</p>
+                    </div>
+                    <div class="result-comparison">
+                        <div class="result-before-after">
+                            <div class="result-item">
+                                <span class="result-label">Original</span>
+                                <div class="result-media" id="originalPreview"></div>
+                                <span class="result-quality" id="originalQuality">Low Quality</span>
+                            </div>
+                            <div class="result-arrow-big">→</div>
+                            <div class="result-item enhanced">
+                                <span class="result-label">Enhanced</span>
+                                <div class="result-media" id="enhancedPreview"></div>
+                                <span class="result-quality success" id="enhancedQuality">4K HD Quality</span>
                             </div>
                         </div>
-                        <div class="download-actions">
-                            <button class="btn-primary btn-large" id="downloadBtn">⬇ Download 4K Video</button>
-                            <button class="btn-outline" id="newVideoBtn">Enhance Another Video</button>
-                        </div>
+                    </div>
+                    <div class="ai-analysis-result" id="aiAnalysisResult">
+                        <div class="ai-badge">🤖 Gemini AI Analysis</div>
+                        <p id="aiAnalysisText">Loading AI insights...</p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-primary btn-large" id="downloadResult">
+                            ⬇️ Download Enhanced
+                        </button>
+                        <button class="btn-outline" id="enhanceAnother">
+                            Enhance Another
+                        </button>
+                        <button class="btn-ghost" id="shareResult">
+                            📤 Share
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Powerful Features</span>
-                <h2>Why Choose <span class="gradient-text">Free Video Enhancer</span></h2>
-                <p>Experience the most advanced AI video enhancement technology available online</p>
+                <span class="section-badge">💯 All Features</span>
+                <h2>Professional <span class="gradient-text">AI Tools</span></h2>
+                <p>Everything you need to create stunning visuals</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📺</div>
-                    <h3>4K Ultra HD Upscaling</h3>
-                    <p>Transform low-resolution videos into stunning 4K quality with our advanced AI algorithms.</p>
+                    <h3>4K Video Upscaling</h3>
+                    <p>Transform low-quality videos into stunning 4K Ultra HD with advanced AI algorithms.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔇</div>
-                    <h3>AI Noise Reduction</h3>
-                    <p>Intelligently remove grain, noise, and compression artifacts while maintaining crisp details.</p>
+                    <div class="feature-icon">🔍</div>
+                    <h3>Unblur & Denoising</h3>
+                    <p>Fix blurry content, remove noise, grain, and compression artifacts instantly.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👤</div>
                     <h3>Face Enhancement</h3>
-                    <p>Specialized AI models for enhancing facial details, perfect for interviews and vlogs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎬</div>
-                    <h3>Frame Interpolation</h3>
-                    <p>Boost video smoothness up to 60fps or 120fps with AI-powered frame interpolation.</p>
+                    <p>Retouch faces, remove acne, smooth skin, enhance selfies to perfection.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
-                    <h3>Color Correction</h3>
-                    <p>Automatic color grading and white balance correction for professional-looking videos.</p>
+                    <h3>AI Art Generator</h3>
+                    <p>Create stunning AI avatars, cartoon yourself, apply artistic styles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Video Editor</h3>
+                    <p>Cut, trim, add music, apply effects - complete video editing suite.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Blazing Fast Processing</h3>
-                    <p>Cloud-based GPU processing delivers results in minutes, not hours.</p>
+                    <h3>Batch Processing</h3>
+                    <p>Enhance multiple photos and videos at once. Save time with bulk processing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Music Video Maker</h3>
+                    <p>Add background music, sound effects to create engaging content.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Social Media Ready</h3>
+                    <p>Perfect for YouTube, Instagram, TikTok, Facebook. Optimized exports.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works-section" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Simple Process</span>
-                <h2>How It <span class="gradient-text">Works</span></h2>
-                <p>Enhance your videos in just three simple steps</p>
-            </div>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <div class="step-icon">⬆</div>
-                        <h3>Upload Video</h3>
-                        <p>Simply drag and drop your video or click to browse. We support MP4, MOV, AVI, MKV and more.
-                        </p>
-                    </div>
-                </div>
-                <div class="step-connector">- - - - -</div>
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <div class="step-icon">⚙</div>
-                        <h3>Choose Settings</h3>
-                        <p>Select your desired output resolution, enhancement mode, and frame rate for optimal results.
-                        </p>
-                    </div>
-                </div>
-                <div class="step-connector">- - - - -</div>
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <div class="step-icon">⬇</div>
-                        <h3>Download Enhanced</h3>
-                        <p>Once processing is complete, download your enhanced video in stunning 4K quality.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Pricing Section - Indian Rupees, 2 Plans -->
     <section class="pricing-section" id="pricing">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Flexible Pricing</span>
+                <span class="section-badge">💰 Simple Pricing</span>
                 <h2>Choose Your <span class="gradient-text">Plan</span></h2>
-                <p>Start for free, upgrade when you need more power</p>
+                <p>Start for free, upgrade to Pro for unlimited access</p>
             </div>
-            <div class="pricing-toggle">
-                <span class="toggle-label active">Monthly</span>
-                <label class="toggle-switch"><input type="checkbox" id="billingToggle"><span
-                        class="toggle-slider"></span></label>
-                <span class="toggle-label">Yearly <span class="save-badge">Save 40%</span></span>
-            </div>
-            <div class="pricing-grid">
+            <div class="pricing-grid two-plans">
                 <div class="pricing-card">
                     <div class="plan-header">
                         <h3>Free</h3>
-                        <p>Perfect for trying out</p>
+                        <p>Perfect for personal use</p>
                     </div>
-                    <div class="plan-price"><span class="currency">$</span><span class="amount">0</span><span
+                    <div class="plan-price"><span class="currency">₹</span><span class="amount">0</span><span
                             class="period">/month</span></div>
                     <ul class="plan-features">
-                        <li>✓ 5 videos per month</li>
+                        <li>✓ 5 enhancements per day</li>
                         <li>✓ Up to 1080p output</li>
-                        <li>✓ 500MB max file size</li>
-                        <li>✓ Standard processing</li>
-                        <li class="disabled">✗ Watermark on video</li>
+                        <li>✓ All AI tools access</li>
+                        <li>✓ Standard processing speed</li>
+                        <li>✓ Gemini AI analysis</li>
+                        <li class="disabled">✗ Watermark on exports</li>
+                        <li class="disabled">✗ Batch processing</li>
                     </ul>
                     <button class="btn-outline btn-full">Get Started Free</button>
                 </div>
                 <div class="pricing-card popular">
-                    <div class="popular-badge">Most Popular</div>
+                    <div class="popular-badge">Recommended</div>
                     <div class="plan-header">
                         <h3>Pro</h3>
-                        <p>For content creators</p>
+                        <p>For content creators & professionals</p>
                     </div>
-                    <div class="plan-price"><span class="currency">$</span><span class="amount">19</span><span
+                    <div class="plan-price"><span class="currency">₹</span><span class="amount">499</span><span
                             class="period">/month</span></div>
                     <ul class="plan-features">
-                        <li>✓ 50 videos per month</li>
-                        <li>✓ Up to 4K output</li>
-                        <li>✓ 5GB max file size</li>
-                        <li>✓ Priority processing</li>
-                        <li>✓ No watermark</li>
-                        <li>✓ 60 FPS interpolation</li>
-                    </ul>
-                    <button class="btn-primary btn-full">Upgrade to Pro</button>
-                </div>
-                <div class="pricing-card">
-                    <div class="plan-header">
-                        <h3>Enterprise</h3>
-                        <p>For teams & studios</p>
-                    </div>
-                    <div class="plan-price"><span class="currency">$</span><span class="amount">79</span><span
-                            class="period">/month</span></div>
-                    <ul class="plan-features">
-                        <li>✓ Unlimited videos</li>
-                        <li>✓ Up to 8K output</li>
-                        <li>✓ Unlimited file size</li>
+                        <li>✓ Unlimited enhancements</li>
+                        <li>✓ Up to 4K Ultra HD output</li>
+                        <li>✓ All AI tools + priority access</li>
                         <li>✓ Ultra-fast processing</li>
-                        <li>✓ API access</li>
-                        <li>✓ 120 FPS interpolation</li>
-                        <li>✓ Dedicated support</li>
+                        <li>✓ Advanced Gemini AI features</li>
+                        <li>✓ No watermark</li>
+                        <li>✓ Batch processing</li>
+                        <li>✓ Priority support</li>
                     </ul>
-                    <button class="btn-outline btn-full">Contact Sales</button>
+                    <button class="btn-primary btn-full">Upgrade to Pro ₹499/mo</button>
                 </div>
+            </div>
+            <div class="pricing-note">
+                <p>🇮🇳 Prices in Indian Rupees • 🔒 Secure payment via Razorpay • 💳 Cancel anytime</p>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Testimonials</span>
+                <span class="section-badge">⭐ Reviews</span>
                 <h2>Loved by <span class="gradient-text">Creators</span></h2>
-                <p>See what our users are saying about Free Video Enhancer</p>
+                <p>See what our users are saying</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"This tool saved my old family videos! I had footage from 2005 that
-                        looked terrible, and now it's crystal clear in 4K."</p>
+                    <p class="testimonial-text">"Restored my old family videos from 2005 to crystal clear 4K quality!
+                        The AI is incredible."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info"><span class="author-name">Sarah Mitchell</span><span
-                                class="author-role">YouTuber, 500K+ subscribers</span></div>
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info"><span class="author-name">Rahul Sharma</span><span
+                                class="author-role">YouTuber, Mumbai</span></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"The anime mode is incredible! It preserves the art style while
-                        upscaling perfectly. A must-have for any anime content creator."</p>
+                    <p class="testimonial-text">"The face retouch feature is amazing! Perfect for my Instagram photos.
+                        Love the AI art generator too!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">JT</div>
-                        <div class="author-info"><span class="author-name">James Thompson</span><span
-                                class="author-role">Anime Content Creator</span></div>
+                        <div class="author-avatar">PA</div>
+                        <div class="author-info"><span class="author-name">Priya Agarwal</span><span
+                                class="author-role">Content Creator, Delhi</span></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"As a filmmaker, quality is everything. Free Video Enhancer helps me
-                        restore
-                        archival footage for documentaries."</p>
+                    <p class="testimonial-text">"Best video enhancer I've used! The ₹499/month Pro plan is totally worth
+                        it for unlimited 4K exports."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">EP</div>
-                        <div class="author-info"><span class="author-name">Elena Petrova</span><span
-                                class="author-role">Documentary Filmmaker</span></div>
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info"><span class="author-name">Amit Kumar</span><span
+                                class="author-role">Filmmaker, Bangalore</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">FAQ</span>
+                <span class="section-badge">❓ FAQ</span>
                 <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
             </div>
             <div class="faq-container">
-                <div class="faq-item"><button class="faq-question"><span>How does AI video enhancement work?</span><span
+                <div class="faq-item"><button class="faq-question"><span>What AI tools are included?</span><span
                             class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Our AI video enhancer uses advanced deep learning models trained on millions of video frames.
-                        </p>
+                        <p>Our suite includes AI Video Enhancer, Photo Enhancer, Face Retouch, AI Art Generator,
+                            Unblur/Restore, Video Editor with music, and batch processing capabilities. All powered by
+                            Gemini AI 2.5 Flash.</p>
                     </div>
                 </div>
-                <div class="faq-item"><button class="faq-question"><span>What video formats are supported?</span><span
+                <div class="faq-item"><button class="faq-question"><span>What formats are supported?</span><span
                             class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Free Video Enhancer supports MP4, MOV, AVI, MKV, WebM, WMV, and more.</p>
+                        <p>Videos: MP4, MOV, AVI, MKV, WebM. Images: JPG, PNG, WebP, HEIC. We support all popular
+                            formats.</p>
                     </div>
                 </div>
-                <div class="faq-item"><button class="faq-question"><span>How long does video enhancement
-                            take?</span><span class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>A 1-minute video typically takes 2-5 minutes to enhance to 4K.</p>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question"><span>Is my video data secure?</span><span
+                <div class="faq-item"><button class="faq-question"><span>How does the Gemini AI work?</span><span
                             class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>All uploads are encrypted and automatically deleted within 24 hours.</p>
+                        <p>We use Google's Gemini 2.5 Flash AI to analyze your media and provide intelligent enhancement
+                            recommendations. The AI detects blur, noise, faces, and optimal enhancement settings
+                            automatically.</p>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span>Is payment secure?</span><span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! We use Razorpay for secure payments in Indian Rupees. All transactions are encrypted and
+                            secure. You can cancel anytime.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Enhance Your <span class="gradient-text">Videos</span>?</h2>
-                <p>Join millions of creators using Free Video Enhancer to upscale their content to stunning 4K quality.
-                </p>
+                <h2>🔥 Ready to <span class="gradient-text">Enhance</span>?</h2>
+                <p>Transform your videos and photos into stunning quality. Try all AI tools free!</p>
                 <div class="cta-buttons">
-                    <a href="#enhancer" class="btn-primary btn-large">Start Enhancing Now →</a>
-                    <a href="#pricing" class="btn-ghost btn-large">View Pricing</a>
+                    <a href="#tools" class="btn-primary btn-large">Start Enhancing Now →</a>
+                    <a href="login.html" class="btn-ghost btn-large">Sign In</a>
                 </div>
             </div>
         </div>
@@ -453,48 +532,76 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <div class="logo-icon">✦</div><span>Free Video <span class="accent">Enhancer</span></span>
+                        <img src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                            alt="Logo" class="logo-img">
                     </a>
-                    <p>Transform your low-quality videos into stunning 4K masterpieces with the power of AI.</p>
+                    <p>AI-powered video & photo enhancement. Unblur, restore, upscale to 4K HD quality instantly.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Product</h4>
+                    <h4>AI Tools</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
+                        <li><a href="#tools">Video Enhancer</a></li>
+                        <li><a href="#tools">Photo Enhancer</a></li>
+                        <li><a href="#tools">Face Retouch</a></li>
+                        <li><a href="#tools">AI Art</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html">Sign Up</a></li>
                         <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Free Video Enhancer Online. All rights reserved.</p>
+                <p>&copy; 2026 Free Video Enhancer Online. Made with ❤️ in India</p>
             </div>
         </div>
     </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_example_replace_with_your_key",
+            authDomain: "your-app.firebaseapp.com",
+            projectId: "your-app",
+            storageBucket: "your-app.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abc123def456"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const loginBtn = document.getElementById('loginBtn');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loginBtn.textContent = user.displayName || 'My Account';
+                loginBtn.href = '#';
+                loginBtn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    if (confirm('Sign out?')) {
+                        await signOut(auth);
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 
