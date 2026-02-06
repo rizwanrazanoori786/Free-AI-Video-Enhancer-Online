@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free AI Video Enhancer Online - Upscale your videos to 4K quality with EaseMate AI.">
+    <title>EaseMate AI | Free AI Video Enhancer Online - Upscale to 4K</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">✦</div>
+                <span>EaseMate<span class="accent">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-ghost">Sign In</a>
+                <a href="#enhancer" class="btn-primary">Try Free</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">✨ Powered by Advanced AI Technology</div>
+            <h1>Free AI Video <span class="gradient-text">Enhancer</span> Online</h1>
+            <p class="hero-description">Enhance video quality frame by frame with EaseMate AI. Our free video enhancer makes it easy and efficient to upscale low-quality videos into stunning 4K resolution online.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">4K</span><span class="stat-label">Resolution</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-number">60</span><span class="stat-label">FPS Support</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-number">10M+</span><span class="stat-label">Videos Enhanced</span></div>
+            </div>
+            <div class="hero-cta">
+                <a href="#enhancer" class="btn-primary btn-large">▶ Enhance Your Video Now</a>
+                <a href="#how-it-works" class="btn-secondary btn-large">Learn More →</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="video-comparison">
+                <div class="comparison-side before"><div class="comparison-label">Before</div><div class="comparison-quality">480p</div><div class="video-placeholder"><div class="blur-effect"></div></div></div>
+                <div class="comparison-divider"><div class="slider-handle">⟷</div></div>
+                <div class="comparison-side after"><div class="comparison-label">After</div><div class="comparison-quality">4K</div><div class="video-placeholder enhanced"></div></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="brands-section">
+        <div class="container">
+            <p class="brands-title">Trusted by creators from</p>
+            <div class="brands-logos">
+                <div class="brand-logo">YouTube</div>
+                <div class="brand-logo">TikTok</div>
+                <div class="brand-logo">Instagram</div>
+                <div class="brand-logo">Vimeo</div>
+                <div class="brand-logo">Netflix</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="enhancer-section" id="enhancer">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">AI Video Enhancer</span>
+                <h2>Enhance Your Video in <span class="gradient-text">Seconds</span></h2>
+                <p>Upload your video and let our AI do the magic. No software installation required.</p>
+            </div>
+            
+            <div class="enhancer-tool">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">⬆</div>
+                    <h3>Drag & Drop Your Video Here</h3>
+                    <p>or click to browse files</p>
+                    <div class="upload-formats">
+                        <span>Supported: MP4, MOV, AVI, MKV, WebM</span>
+                        <span>Max size: 500MB (Free) • 5GB (Pro)</span>
+                    </div>
+                    <input type="file" id="videoInput" accept="video/*" hidden>
+                </div>
+
+                <div class="processing-state" id="processingState">
+                    <div class="video-preview" id="videoPreview"></div>
+                    <div class="processing-info">
+                        <div class="file-info" id="fileInfo"><span class="file-name">video.mp4</span><span class="file-size">25.4 MB</span></div>
+                        <div class="enhancement-options">
+                            <h4>Enhancement Settings</h4>
+                            <div class="options-grid">
+                                <div class="option-card"><label class="option-label"><span class="option-title">Output Resolution</span><select id="resolution"><option value="1080p">1080p HD</option><option value="2k">2K QHD</option><option value="4k" selected>4K Ultra HD</option><option value="8k">8K (Pro)</option></select></label></div>
+                                <div class="option-card"><label class="option-label"><span class="option-title">Enhancement Mode</span><select id="mode"><option value="standard">Standard</option><option value="denoise" selected>Denoise + Enhance</option><option value="anime">Anime Mode</option><option value="face">Face Enhancement</option></select></label></div>
+                                <div class="option-card"><label class="option-label"><span class="option-title">Frame Rate</span><select id="framerate"><option value="original">Keep Original</option><option value="30">30 FPS</option><option value="60" selected>60 FPS</option><option value="120">120 FPS (Pro)</option></select></label></div>
+                                <div class="option-card"><label class="option-label"><span class="option-title">Color Enhancement</span><select id="color"><option value="none">None</option><option value="auto" selected>Auto Balance</option><option value="vivid">Vivid Colors</option><option value="hdr">HDR Effect</option></select></label></div>
+                            </div>
+                        </div>
+                        <div class="enhance-actions">
+                            <button class="btn-outline" id="cancelBtn">Cancel</button>
+                            <button class="btn-primary btn-large" id="enhanceBtn">✨ Start Enhancement</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-state" id="progressState">
+                    <div class="progress-container">
+                        <div class="progress-visual">
+                            <div class="progress-ring"><span class="progress-percent" id="progressPercent">0%</span></div>
+                        </div>
+                        <div class="progress-info">
+                            <h3 id="progressTitle">Analyzing Video...</h3>
+                            <p id="progressSubtitle">Detecting optimal enhancement parameters</p>
+                            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                            <div class="progress-stats"><span id="progressTime">Estimated time: 2 min</span><span id="progressFrames">Frame 0/1000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="complete-state" id="completeState">
+                    <div class="complete-content">
+                        <div class="success-icon">✓</div>
+                        <h3>Enhancement Complete!</h3>
+                        <p>Your video has been enhanced to 4K resolution</p>
+                        <div class="result-preview">
+                            <div class="result-comparison">
+                                <div class="result-before"><span>Original</span><div class="result-thumbnail"></div></div>
+                                <div class="result-arrow">→</div>
+                                <div class="result-after"><span>Enhanced 4K</span><div class="result-thumbnail enhanced"></div></div>
+                            </div>
+                        </div>
+                        <div class="download-actions">
+                            <button class="btn-primary btn-large" id="downloadBtn">⬇ Download 4K Video</button>
+                            <button class="btn-outline" id="newVideoBtn">Enhance Another Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Powerful Features</span>
+                <h2>Why Choose <span class="gradient-text">EaseMate AI</span></h2>
+                <p>Experience the most advanced AI video enhancement technology available online</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">📺</div><h3>4K Ultra HD Upscaling</h3><p>Transform low-resolution videos into stunning 4K quality with our advanced AI algorithms.</p></div>
+                <div class="feature-card"><div class="feature-icon">🔇</div><h3>AI Noise Reduction</h3><p>Intelligently remove grain, noise, and compression artifacts while maintaining crisp details.</p></div>
+                <div class="feature-card"><div class="feature-icon">👤</div><h3>Face Enhancement</h3><p>Specialized AI models for enhancing facial details, perfect for interviews and vlogs.</p></div>
+                <div class="feature-card"><div class="feature-icon">🎬</div><h3>Frame Interpolation</h3><p>Boost video smoothness up to 60fps or 120fps with AI-powered frame interpolation.</p></div>
+                <div class="feature-card"><div class="feature-icon">🎨</div><h3>Color Correction</h3><p>Automatic color grading and white balance correction for professional-looking videos.</p></div>
+                <div class="feature-card"><div class="feature-icon">⚡</div><h3>Blazing Fast Processing</h3><p>Cloud-based GPU processing delivers results in minutes, not hours.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Simple Process</span>
+                <h2>How It <span class="gradient-text">Works</span></h2>
+                <p>Enhance your videos in just three simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card"><div class="step-number">01</div><div class="step-content"><div class="step-icon">⬆</div><h3>Upload Video</h3><p>Simply drag and drop your video or click to browse. We support MP4, MOV, AVI, MKV and more.</p></div></div>
+                <div class="step-connector">- - - - -</div>
+                <div class="step-card"><div class="step-number">02</div><div class="step-content"><div class="step-icon">⚙</div><h3>Choose Settings</h3><p>Select your desired output resolution, enhancement mode, and frame rate for optimal results.</p></div></div>
+                <div class="step-connector">- - - - -</div>
+                <div class="step-card"><div class="step-number">03</div><div class="step-content"><div class="step-icon">⬇</div><h3>Download Enhanced</h3><p>Once processing is complete, download your enhanced video in stunning 4K quality.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Flexible Pricing</span>
+                <h2>Choose Your <span class="gradient-text">Plan</span></h2>
+                <p>Start for free, upgrade when you need more power</p>
+            </div>
+            <div class="pricing-toggle">
+                <span class="toggle-label active">Monthly</span>
+                <label class="toggle-switch"><input type="checkbox" id="billingToggle"><span class="toggle-slider"></span></label>
+                <span class="toggle-label">Yearly <span class="save-badge">Save 40%</span></span>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header"><h3>Free</h3><p>Perfect for trying out</p></div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount">0</span><span class="period">/month</span></div>
+                    <ul class="plan-features"><li>✓ 5 videos per month</li><li>✓ Up to 1080p output</li><li>✓ 500MB max file size</li><li>✓ Standard processing</li><li class="disabled">✗ Watermark on video</li></ul>
+                    <button class="btn-outline btn-full">Get Started Free</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header"><h3>Pro</h3><p>For content creators</p></div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount">19</span><span class="period">/month</span></div>
+                    <ul class="plan-features"><li>✓ 50 videos per month</li><li>✓ Up to 4K output</li><li>✓ 5GB max file size</li><li>✓ Priority processing</li><li>✓ No watermark</li><li>✓ 60 FPS interpolation</li></ul>
+                    <button class="btn-primary btn-full">Upgrade to Pro</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-header"><h3>Enterprise</h3><p>For teams & studios</p></div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount">79</span><span class="period">/month</span></div>
+                    <ul class="plan-features"><li>✓ Unlimited videos</li><li>✓ Up to 8K output</li><li>✓ Unlimited file size</li><li>✓ Ultra-fast processing</li><li>✓ API access</li><li>✓ 120 FPS interpolation</li><li>✓ Dedicated support</li></ul>
+                    <button class="btn-outline btn-full">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2>Loved by <span class="gradient-text">Creators</span></h2>
+                <p>See what our users are saying about EaseMate AI</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">"This tool saved my old family videos! I had footage from 2005 that looked terrible, and now it's crystal clear in 4K."</p><div class="testimonial-author"><div class="author-avatar">SM</div><div class="author-info"><span class="author-name">Sarah Mitchell</span><span class="author-role">YouTuber, 500K+ subscribers</span></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">"The anime mode is incredible! It preserves the art style while upscaling perfectly. A must-have for any anime content creator."</p><div class="testimonial-author"><div class="author-avatar">JT</div><div class="author-info"><span class="author-name">James Thompson</span><span class="author-role">Anime Content Creator</span></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">"As a filmmaker, quality is everything. EaseMate AI helps me restore archival footage for documentaries."</p><div class="testimonial-author"><div class="author-avatar">EP</div><div class="author-info"><span class="author-name">Elena Petrova</span><span class="author-role">Documentary Filmmaker</span></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item"><button class="faq-question"><span>How does AI video enhancement work?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Our AI video enhancer uses advanced deep learning models trained on millions of video frames.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span>What video formats are supported?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>EaseMate AI supports MP4, MOV, AVI, MKV, WebM, WMV, and more.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span>How long does video enhancement take?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>A 1-minute video typically takes 2-5 minutes to enhance to 4K.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span>Is my video data secure?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>All uploads are encrypted and automatically deleted within 24 hours.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Enhance Your <span class="gradient-text">Videos</span>?</h2>
+                <p>Join millions of creators using EaseMate AI to upscale their content to stunning 4K quality.</p>
+                <div class="cta-buttons">
+                    <a href="#enhancer" class="btn-primary btn-large">Start Enhancing Now →</a>
+                    <a href="#pricing" class="btn-ghost btn-large">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><div class="logo-icon">✦</div><span>EaseMate<span class="accent">AI</span></span></a>
+                    <p>Transform your low-quality videos into stunning 4K masterpieces with the power of AI.</p>
+                </div>
+                <div class="footer-links"><h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#">API</a></li></ul></div>
+                <div class="footer-links"><h4>Resources</h4><ul><li><a href="#">Documentation</a></li><li><a href="#">Tutorials</a></li><li><a href="#">Support</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Careers</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">GDPR</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 EaseMate AI. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
