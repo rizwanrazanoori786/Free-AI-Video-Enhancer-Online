@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Unblur Tool - Fix blurry photos and videos instantly">
+    <title>Unblur & Restore Media | Free AI Enhancer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img
+                    src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                    alt="Logo" class="logo-img"></a>
+            <ul class="nav-links">
+                <li class="dropdown"><a href="index.html#tools">AI Tools ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="video-enhancer.html">🎬 Video Enhancer</a></li>
+                        <li><a href="photo-enhancer.html">📷 Photo Enhancer</a></li>
+                        <li><a href="face-retouch.html">👤 Face Retouch</a></li>
+                        <li><a href="ai-art.html">🎨 AI Art Generator</a></li>
+                        <li><a href="unblur.html" class="active">🔍 Unblur & Restore</a></li>
+                        <li><a href="video-editor.html">✂️ Video Editor</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">🌐 EN</button>
+                <a href="login.html" class="btn-ghost" id="loginBtn">Sign In</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <span class="tool-badge">🔍 AI UNBLUR & RESTORE</span>
+                <h1>Fix Blurry <span class="gradient-text">Photos & Videos</span></h1>
+                <p>Restore clear details from blurry or out-of-focus media instantly</p>
+            </div>
+            <div class="tool-workspace">
+                <div class="upload-section">
+                    <div class="upload-box" id="unblurUploadBox">
+                        <div class="upload-icon">🔍</div>
+                        <h3>Drop Blurry Media Here</h3>
+                        <p>or click to browse files</p>
+                        <span class="upload-formats">Videos & Images • Max 500MB</span>
+                        <input type="file" id="unblurFileInput" accept="image/*,video/*" hidden>
+                    </div>
+                </div>
+                <div class="enhancement-options">
+                    <h4>Restoration Options</h4>
+                    <div class="option-group">
+                        <label>Restoration Mode</label>
+                        <select id="enhanceMode">
+                            <option value="deblur" selected>General Deblur</option>
+                            <option value="motion-deblur">Fix Motion Blur</option>
+                            <option value="focus-fix">Fix Out of Focus</option>
+                            <option value="restore">Old Photo Restoration</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label>Sharpness Level</label>
+                        <select id="sharpness">
+                            <option value="normal">Normal</option>
+                            <option value="high" selected>High (Recommended)</option>
+                            <option value="ultra">Ultra Sharp</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label><input type="checkbox" id="removeNoise" checked> Remove Noise/Grain</label>
+                    </div>
+                    <button class="btn-primary btn-large btn-full pulse-animation" id="enhanceBtn" disabled>🚀 Unblur
+                        Media</button>
+                </div>
+            </div>
+            <div class="processing-result-area" id="processingArea">
+                <div class="processing-view" id="processingView">
+                    <div class="processing-animation">
+                        <div class="processing-spinner"></div>
+                        <h3 id="processingTitle">Restoring Clarity...</h3>
+                        <p id="processingStep">Analyzing blur patterns with AI</p>
+                        <div class="processing-progress">
+                            <div class="progress-bar-outer">
+                                <div class="progress-bar-inner" id="processingProgress"></div>
+                            </div>
+                            <span id="processingPercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-view" id="resultView">
+                    <div class="result-header">
+                        <h3>✨ Restoration Complete!</h3>
+                        <p id="resultDescription">Your media is now crystal clear</p>
+                    </div>
+                    <div class="result-comparison">
+                        <div class="result-before-after">
+                            <div class="result-item"><span class="result-label">Blurry</span>
+                                <div class="result-media" id="originalPreview"></div>
+                            </div>
+                            <div class="result-arrow-big">→</div>
+                            <div class="result-item enhanced"><span class="result-label">Clear</span>
+                                <div class="result-media" id="enhancedPreview"></div><span
+                                    class="result-quality success" id="enhancedQuality">HD Clear</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-analysis-result">
+                        <div class="ai-badge">🤖 Gemini AI Analysis</div>
+                        <p id="aiAnalysisText">Loading...</p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-primary btn-large" id="downloadResult">⬇️ Download Clear Version</button>
+                        <button class="btn-outline" id="enhanceAnother">Enhance Another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+        const firebaseConfig = { apiKey: "AIzaSyAwC3KMsvImVOQxLT7ZFNcGVLvdZwZEHPk", authDomain: "free-ai-video-enhancer-online.firebaseapp.com", projectId: "free-ai-video-enhancer-online", storageBucket: "free-ai-video-enhancer-online.firebasestorage.app", messagingSenderId: "396085292596", appId: "1:396085292596:web:9507038df1cd3f4e576461" };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        onAuthStateChanged(auth, (user) => { if (user) document.getElementById('loginBtn').textContent = user.displayName || 'Account'; });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

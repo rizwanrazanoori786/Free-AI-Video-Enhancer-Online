@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Free Video Enhancer Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img
+                    src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                    alt="Logo" class="logo-img"></a>
+            <ul class="nav-links">
+                <li><a href="index.html#tools">AI Tools</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="profile.html" class="profile-btn" id="profileBtn">
+                    <span class="profile-avatar" id="profileAvatar">U</span>
+                    <span class="profile-name" id="profileName">User</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-cover"></div>
+                <div class="profile-info-main">
+                    <div class="profile-avatar-large" id="largeAvatar">U</div>
+                    <div class="profile-details">
+                        <h1 id="userName">User Name</h1>
+                        <p id="userEmail">user@email.com</p>
+                        <span class="profile-badge" id="userPlan">Free Plan</span>
+                    </div>
+                    <button class="btn-outline" id="editProfileBtn">✏️ Edit Profile</button>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Usage Stats -->
+                <div class="profile-card">
+                    <h3>📊 Usage Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value" id="totalEnhancements">0</span>
+                            <span class="stat-label">Total Enhancements</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="todayUsage">0/5</span>
+                            <span class="stat-label">Used Today</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="savedMedia">0</span>
+                            <span class="stat-label">Saved Media</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="memberSince">-</span>
+                            <span class="stat-label">Member Since</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscription -->
+                <div class="profile-card">
+                    <h3>💳 Subscription</h3>
+                    <div class="subscription-info">
+                        <div class="current-plan">
+                            <span class="plan-name" id="planName">Free Plan</span>
+                            <span class="plan-price" id="planPrice">₹0/month</span>
+                        </div>
+                        <div class="plan-features-mini">
+                            <p id="planLimit">5 enhancements per day</p>
+                            <p id="planQuality">Up to 1080p output</p>
+                        </div>
+                        <a href="index.html#pricing" class="btn-primary btn-full">⬆️ Upgrade Plan</a>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="profile-card full-width">
+                    <h3>📁 Recent Enhancements</h3>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <span class="activity-icon">🎬</span>
+                            <div class="activity-details">
+                                <span class="activity-name">video_123.mp4</span>
+                                <span class="activity-date">Enhanced to 4K • 2 hours ago</span>
+                            </div>
+                            <button class="btn-ghost btn-sm">⬇️</button>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">📷</span>
+                            <div class="activity-details">
+                                <span class="activity-name">photo_sunset.jpg</span>
+                                <span class="activity-date">Enhanced to HD • 5 hours ago</span>
+                            </div>
+                            <button class="btn-ghost btn-sm">⬇️</button>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">👤</span>
+                            <div class="activity-details">
+                                <span class="activity-name">selfie_portrait.png</span>
+                                <span class="activity-date">Face Retouched • Yesterday</span>
+                            </div>
+                            <button class="btn-ghost btn-sm">⬇️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="profile-card">
+                    <h3>⚙️ Account Settings</h3>
+                    <div class="settings-list">
+                        <button class="settings-item" id="changePassword">
+                            <span>🔐 Change Password</span>
+                            <span>→</span>
+                        </button>
+                        <button class="settings-item" id="notifications">
+                            <span>🔔 Notifications</span>
+                            <span class="toggle-switch active"></span>
+                        </button>
+                        <button class="settings-item" id="darkMode">
+                            <span>🌙 Dark Mode</span>
+                            <span class="toggle-switch active"></span>
+                        </button>
+                        <button class="settings-item" id="deleteAccount">
+                            <span>🗑️ Delete Account</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="profile-card">
+                    <h3>🚀 Quick Actions</h3>
+                    <div class="quick-actions">
+                        <a href="video-enhancer.html" class="quick-action-btn">🎬 Enhance Video</a>
+                        <a href="photo-enhancer.html" class="quick-action-btn">📷 Enhance Photo</a>
+                        <a href="face-retouch.html" class="quick-action-btn">👤 Face Retouch</a>
+                        <a href="ai-art.html" class="quick-action-btn">🎨 AI Art</a>
+                    </div>
+                </div>
+
+                <!-- Help & Support -->
+                <div class="profile-card full-width">
+                    <h3>❓ Help & Support</h3>
+                    <div class="support-grid">
+                        <a href="index.html#faq" class="support-item">
+                            <span class="support-icon">📚</span>
+                            <span>FAQ</span>
+                        </a>
+                        <a href="mailto:support@freevideoenhancer.com" class="support-item">
+                            <span class="support-icon">📧</span>
+                            <span>Email Support</span>
+                        </a>
+                        <a href="terms.html" class="support-item">
+                            <span class="support-icon">📜</span>
+                            <span>Terms</span>
+                        </a>
+                        <a href="privacy.html" class="support-item">
+                            <span class="support-icon">🔒</span>
+                            <span>Privacy</span>
+                        </a>
+                        <a href="refund.html" class="support-item">
+                            <span class="support-icon">💳</span>
+                            <span>Refund</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-footer">
+                <button class="btn-outline" id="logoutBtn">🚪 Sign Out</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Free Video Enhancer Online. Made with ❤️ in India</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAwC3KMsvImVOQxLT7ZFNcGVLvdZwZEHPk",
+            authDomain: "free-ai-video-enhancer-online.firebaseapp.com",
+            projectId: "free-ai-video-enhancer-online",
+            storageBucket: "free-ai-video-enhancer-online.firebasestorage.app",
+            messagingSenderId: "396085292596",
+            appId: "1:396085292596:web:9507038df1cd3f4e576461"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const name = user.displayName || user.email.split('@')[0];
+                const initial = name.charAt(0).toUpperCase();
+
+                document.getElementById('userName').textContent = name;
+                document.getElementById('userEmail').textContent = user.email;
+                document.getElementById('profileName').textContent = name;
+                document.getElementById('profileAvatar').textContent = initial;
+                document.getElementById('largeAvatar').textContent = initial;
+
+                // Format member since date
+                const createdAt = user.metadata.creationTime;
+                if (createdAt) {
+                    const date = new Date(createdAt);
+                    document.getElementById('memberSince').textContent = date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+                }
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            if (confirm('Are you sure you want to sign out?')) {
+                await signOut(auth);
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+    <style>
+        .profile-page {
+            padding: 80px 0 60px;
+            min-height: 100vh;
+        }
+
+        .profile-header {
+            margin-bottom: 40px;
+        }
+
+        .profile-cover {
+            height: 150px;
+            background: var(--gradient-1);
+            border-radius: var(--radius);
+        }
+
+        .profile-info-main {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: -50px;
+            padding: 0 24px;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar-large {
+            width: 100px;
+            height: 100px;
+            background: var(--dark-card);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-details h1 {
+            font-size: 1.75rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-details p {
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .profile-card {
+            background: var(--dark-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .profile-card.full-width {
+            grid-column: span 2;
+        }
+
+        .profile-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+            background: var(--glass);
+            border-radius: var(--radius-sm);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .subscription-info {
+            text-align: center;
+        }
+
+        .current-plan {
+            margin-bottom: 16px;
+        }
+
+        .plan-name {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .plan-price {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .plan-features-mini {
+            margin-bottom: 20px;
+        }
+
+        .plan-features-mini p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 4px 0;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px;
+            background: var(--glass);
+            border-radius: var(--radius-sm);
+        }
+
+        .activity-icon {
+            font-size: 1.5rem;
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-name {
+            display: block;
+            font-weight: 500;
+        }
+
+        .activity-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .settings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--glass);
+            border: none;
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .settings-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .toggle-switch {
+            width: 40px;
+            height: 22px;
+            background: var(--glass-border);
+            border-radius: 11px;
+            position: relative;
+        }
+
+        .toggle-switch.active {
+            background: var(--primary);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .toggle-switch.active::after {
+            left: 20px;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .quick-action-btn {
+            display: block;
+            padding: 16px;
+            background: var(--glass);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .quick-action-btn:hover {
+            background: rgba(139, 92, 246, 0.2);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .support-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            background: var(--glass);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .support-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .support-icon {
+            font-size: 1.5rem;
+        }
+
+        .profile-footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .profile-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .profile-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .profile-name {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card.full-width {
+                grid-column: span 1;
+            }
+
+            .profile-info-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .support-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</body>
+
+</html>

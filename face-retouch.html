@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Face Retouch - Fix blemishes, smooth skin, and enhance portraits vertically">
+    <title>Face Retouch & Enhancement | Free AI Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img
+                    src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                    alt="Logo" class="logo-img"></a>
+            <ul class="nav-links">
+                <li class="dropdown"><a href="index.html#tools">AI Tools ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="video-enhancer.html">🎬 Video Enhancer</a></li>
+                        <li><a href="photo-enhancer.html">📷 Photo Enhancer</a></li>
+                        <li><a href="face-retouch.html" class="active">👤 Face Retouch</a></li>
+                        <li><a href="ai-art.html">🎨 AI Art Generator</a></li>
+                        <li><a href="unblur.html">🔍 Unblur & Restore</a></li>
+                        <li><a href="video-editor.html">✂️ Video Editor</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">🌐 EN</button>
+                <a href="login.html" class="btn-ghost" id="loginBtn">Sign In</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <span class="tool-badge">👤 AI FACE RETOUCH</span>
+                <h1>Professional <span class="gradient-text">Portrait Enhancement</span></h1>
+                <p>Smooth skin, remove blemishes, and enhance facial details automatically</p>
+            </div>
+            <div class="tool-workspace">
+                <div class="upload-section">
+                    <div class="upload-box" id="faceUploadBox">
+                        <div class="upload-icon">👤</div>
+                        <h3>Drop Portrait Here</h3>
+                        <p>or click to browse files</p>
+                        <span class="upload-formats">JPG, PNG, WebP • Max 50MB</span>
+                        <input type="file" id="faceFileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+                <div class="enhancement-options">
+                    <h4>Retouch Options</h4>
+                    <div class="option-group">
+                        <label>Retouch Level</label>
+                        <select id="enhanceMode">
+                            <option value="natural" selected>Natural (Subtle)</option>
+                            <option value="glamour">Glamour (Smooth)</option>
+                            <option value="studio">Studio Light</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label><input type="checkbox" id="smoothSkin" checked> Smooth Skin</label>
+                    </div>
+                    <div class="option-group">
+                        <label><input type="checkbox" id="removeBlemishes" checked> Remove Blemishes</label>
+                    </div>
+                    <div class="option-group">
+                        <label><input type="checkbox" id="whitenTeeth"> Whiten Teeth</label>
+                    </div>
+                    <button class="btn-primary btn-large btn-full pulse-animation" id="enhanceBtn" disabled>✨ Retouch
+                        Face</button>
+                </div>
+            </div>
+            <div class="processing-result-area" id="processingArea">
+                <div class="processing-view" id="processingView">
+                    <div class="processing-animation">
+                        <div class="processing-spinner"></div>
+                        <h3 id="processingTitle">Retouching Face...</h3>
+                        <p id="processingStep">Detecting facial features</p>
+                        <div class="processing-progress">
+                            <div class="progress-bar-outer">
+                                <div class="progress-bar-inner" id="processingProgress"></div>
+                            </div>
+                            <span id="processingPercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-view" id="resultView">
+                    <div class="result-header">
+                        <h3>✨ Retouching Complete!</h3>
+                        <p id="resultDescription">Your portrait looks stunning</p>
+                    </div>
+                    <div class="result-comparison">
+                        <div class="result-before-after">
+                            <div class="result-item"><span class="result-label">Original</span>
+                                <div class="result-media" id="originalPreview"></div>
+                            </div>
+                            <div class="result-arrow-big">→</div>
+                            <div class="result-item enhanced"><span class="result-label">Retouched</span>
+                                <div class="result-media" id="enhancedPreview"></div><span
+                                    class="result-quality success" id="enhancedQuality">Studio Quality</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-analysis-result">
+                        <div class="ai-badge">🤖 Gemini AI Analysis</div>
+                        <p id="aiAnalysisText">Loading...</p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-primary btn-large" id="downloadResult">⬇️ Download Result</button>
+                        <button class="btn-outline" id="enhanceAnother">Enhance Another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+        const firebaseConfig = { apiKey: "AIzaSyAwC3KMsvImVOQxLT7ZFNcGVLvdZwZEHPk", authDomain: "free-ai-video-enhancer-online.firebaseapp.com", projectId: "free-ai-video-enhancer-online", storageBucket: "free-ai-video-enhancer-online.firebasestorage.app", messagingSenderId: "396085292596", appId: "1:396085292596:web:9507038df1cd3f4e576461" };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        onAuthStateChanged(auth, (user) => { if (user) document.getElementById('loginBtn').textContent = user.displayName || 'Account'; });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
