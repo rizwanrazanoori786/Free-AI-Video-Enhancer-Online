@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Video Editor - Cut, trim, add music, apply effects with Gemini AI">
+    <title>Video Editor | Free Video Enhancer Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-container"><a href="index.html" class="logo"><img
+                    src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                    alt="Logo" class="logo-img"></a>
+            <ul class="nav-links">
+                <li class="dropdown"><a href="index.html#tools">AI Tools ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="video-enhancer.html">🎬 Video Enhancer</a></li>
+                        <li><a href="photo-enhancer.html">📷 Photo Enhancer</a></li>
+                        <li><a href="face-retouch.html">👤 Face Retouch</a></li>
+                        <li><a href="ai-art.html">🎨 AI Art Generator</a></li>
+                        <li><a href="unblur.html">🔍 Unblur & Restore</a></li>
+                        <li><a href="video-editor.html" class="active">✂️ Video Editor</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-actions"><a href="login.html" class="btn-ghost" id="loginBtn">Sign In</a></div><button
+                class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header"><span class="tool-badge">✂️ VIDEO EDITOR</span>
+                <h1>Edit Videos <span class="gradient-text">Like a Pro</span></h1>
+                <p>Cut, trim, add music, apply effects - all in browser</p>
+            </div>
+            <div class="tool-workspace">
+                <div class="upload-section">
+                    <div class="upload-box" id="editorUploadBox">
+                        <div class="upload-icon">✂️</div>
+                        <h3>Drop Your Video Here</h3>
+                        <p>or click to browse</p><span class="upload-formats">MP4, MOV, AVI • Max 500MB</span><input
+                            type="file" id="editorFileInput" accept="video/*" hidden>
+                    </div>
+                </div>
+                <div class="enhancement-options">
+                    <h4>Edit Options</h4>
+                    <div class="option-group"><label>Output Format</label><select id="format">
+                            <option value="mp4" selected>MP4</option>
+                            <option value="mov">MOV</option>
+                            <option value="webm">WebM</option>
+                        </select></div>
+                    <div class="option-group"><label>Resolution</label><select id="resolution">
+                            <option value="720p">720p HD</option>
+                            <option value="1080p" selected>1080p Full HD</option>
+                            <option value="4k">4K Ultra HD</option>
+                        </select></div>
+                    <div class="option-group"><label><input type="checkbox" id="addMusic"> Add Background Music</label>
+                    </div><button class="btn-primary btn-large btn-full" id="enhanceBtn" disabled>🚀 Start
+                        Editing</button>
+                </div>
+            </div>
+            <div class="processing-result-area" id="processingArea">
+                <div class="processing-view" id="processingView">
+                    <div class="processing-animation">
+                        <div class="processing-spinner"></div>
+                        <h3 id="processingTitle">Processing video...</h3>
+                        <p id="processingStep">Editing with Gemini AI</p>
+                        <div class="processing-progress">
+                            <div class="progress-bar-outer">
+                                <div class="progress-bar-inner" id="processingProgress"></div>
+                            </div><span id="processingPercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-view" id="resultView">
+                    <div class="result-header">
+                        <h3>✨ Edit Complete!</h3>
+                        <p id="resultDescription">Your video is ready</p>
+                    </div>
+                    <div class="result-actions"><button class="btn-primary btn-large" id="downloadResult">⬇️ Download
+                            Video</button><button class="btn-outline" id="enhanceAnother">Edit Another</button></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Free Video Enhancer Online</p>
+        </div>
+    </footer>
+    <script
+        type="module">import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js'; import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js'; const c = { apiKey: "AIzaSyAwC3KMsvImVOQxLT7ZFNcGVLvdZwZEHPk", authDomain: "free-ai-video-enhancer-online.firebaseapp.com", projectId: "free-ai-video-enhancer-online" }; const a = initializeApp(c); onAuthStateChanged(getAuth(a), (u) => { if (u) document.getElementById('loginBtn').textContent = u.displayName || 'Account'; });</script>
+    <script src="script.js"></script>
+    <style>
+        .tool-page {
+            padding: 100px 0 60px
+        }
+
+        .tool-page-header {
+            text-align: center;
+            margin-bottom: 48px
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 16px
+        }
+
+        .tool-page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px
+        }
+
+        .tool-page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem
+        }
+
+        .tool-workspace {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px
+        }
+
+        .upload-section .upload-box {
+            padding: 80px 40px
+        }
+
+        .enhancement-options {
+            background: var(--dark-card);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border)
+        }
+
+        .enhancement-options h4 {
+            margin-bottom: 20px
+        }
+
+        .option-group {
+            margin-bottom: 16px
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: .9rem
+        }
+
+        .option-group select {
+            width: 100%;
+            padding: 12px;
+            background: var(--dark);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            color: var(--text)
+        }
+
+        .option-group input[type=checkbox] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            margin-right: 8px
+        }
+
+        @media(max-width:768px) {
+            .tool-workspace {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</body>
+
+</html>

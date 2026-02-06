@@ -23,23 +23,69 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
                     alt="Logo" class="logo-img">
             </a>
             <ul class="nav-links">
-                <li><a href="#tools">AI Tools</a></li>
+                <li class="dropdown">
+                    <a href="#tools">AI Tools ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="video-enhancer.html">🎬 Video Enhancer</a></li>
+                        <li><a href="photo-enhancer.html">📷 Photo Enhancer</a></li>
+                        <li><a href="face-retouch.html">👤 Face Retouch</a></li>
+                        <li><a href="ai-art.html">🎨 AI Art Generator</a></li>
+                        <li><a href="unblur.html">🔍 Unblur & Restore</a></li>
+                        <li><a href="video-editor.html">✂️ Video Editor</a></li>
+                    </ul>
+                </li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle" title="Switch Language">🌐 EN</button>
                 <a href="login.html" class="btn-ghost" id="loginBtn">Sign In</a>
                 <a href="#tools" class="btn-primary">Try Free</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="https://uhibrand.com/wp-content/uploads/2025/08/cropped-facebook-profile-cover-1756561293275-scaled-1-120x47.png"
+                alt="Logo" class="logo-img">
+            <button class="sidebar-close" id="sidebarClose">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">🏠 Home</a>
+            <div class="sidebar-section">
+                <span class="sidebar-title">AI Tools</span>
+                <a href="video-enhancer.html" class="sidebar-link">🎬 Video Enhancer</a>
+                <a href="photo-enhancer.html" class="sidebar-link">📷 Photo Enhancer</a>
+                <a href="face-retouch.html" class="sidebar-link">👤 Face Retouch</a>
+                <a href="ai-art.html" class="sidebar-link">🎨 AI Art Generator</a>
+                <a href="unblur.html" class="sidebar-link">🔍 Unblur & Restore</a>
+                <a href="video-editor.html" class="sidebar-link">✂️ Video Editor</a>
+            </div>
+            <a href="#features" class="sidebar-link">💡 Features</a>
+            <a href="#pricing" class="sidebar-link">💰 Pricing</a>
+            <a href="#faq" class="sidebar-link">❓ FAQ</a>
+            <div class="sidebar-section">
+                <span class="sidebar-title">Legal</span>
+                <a href="privacy.html" class="sidebar-link">🔒 Privacy Policy</a>
+                <a href="terms.html" class="sidebar-link">📜 Terms of Service</a>
+                <a href="refund.html" class="sidebar-link">💳 Refund Policy</a>
+            </div>
+            <div class="sidebar-actions">
+                <button class="lang-toggle-mobile" id="langToggleMobile">🌐 English / हिंदी</button>
+                <a href="login.html" class="btn-primary btn-full">Sign In</a>
+            </div>
+        </nav>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <header class="hero">
         <div class="hero-content">
@@ -401,25 +447,44 @@
                     </ul>
                     <button class="btn-outline btn-full">Get Started Free</button>
                 </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Recommended</div>
+                <div class="pricing-card">
                     <div class="plan-header">
                         <h3>Pro</h3>
-                        <p>For content creators & professionals</p>
+                        <p>For content creators</p>
                     </div>
                     <div class="plan-price"><span class="currency">₹</span><span class="amount">499</span><span
                             class="period">/month</span></div>
                     <ul class="plan-features">
+                        <li>✓ 50 enhancements/day</li>
+                        <li>✓ Up to 2K HD output</li>
+                        <li>✓ All AI tools access</li>
+                        <li>✓ Fast processing</li>
+                        <li>✓ Gemini AI features</li>
+                        <li>✓ No watermark</li>
+                        <li>✓ Email support</li>
+                    </ul>
+                    <button class="btn-outline btn-full">Choose Pro ₹499/mo</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">🔥 Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <p>Unlimited 4K Video Enhancer</p>
+                    </div>
+                    <div class="plan-price"><span class="currency">₹</span><span class="amount">1199</span><span
+                            class="period">/month</span></div>
+                    <ul class="plan-features">
                         <li>✓ Unlimited enhancements</li>
                         <li>✓ Up to 4K Ultra HD output</li>
-                        <li>✓ All AI tools + priority access</li>
+                        <li>✓ All AI tools + priority</li>
                         <li>✓ Ultra-fast processing</li>
-                        <li>✓ Advanced Gemini AI features</li>
+                        <li>✓ Advanced Gemini AI</li>
                         <li>✓ No watermark</li>
                         <li>✓ Batch processing</li>
-                        <li>✓ Priority support</li>
+                        <li>✓ Priority 24/7 support</li>
+                        <li>✓ Commercial license</li>
                     </ul>
-                    <button class="btn-primary btn-full">Upgrade to Pro ₹499/mo</button>
+                    <button class="btn-primary btn-full">Get Premium ₹1199/mo</button>
                 </div>
             </div>
             <div class="pricing-note">

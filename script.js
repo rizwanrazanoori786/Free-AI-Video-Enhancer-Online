@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const shareResult = document.getElementById('shareResult');
 
     const billingToggle = document.getElementById('billingToggle');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 
     // State
     let currentTool = 'video-enhancer';
@@ -417,5 +416,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Mobile Sidebar
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    if (mobileMenuBtn && mobileSidebar) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeSidebar = () => {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // Language Toggle
+    const translations = {
+        en: { enhancer: 'Video Enhancer', photo: 'Photo Enhancer', face: 'Face Retouch', art: 'AI Art', unblur: 'Unblur', editor: 'Video Editor' },
+        hi: { enhancer: 'वीडियो एन्हांसर', photo: 'फोटो एन्हांसर', face: 'फेस रीटच', art: 'AI आर्ट', unblur: 'अनब्लर', editor: 'वीडियो एडिटर' }
+    };
+    let currentLang = 'en';
+
+    const langToggle = document.getElementById('langToggle');
+    const langToggleMobile = document.getElementById('langToggleMobile');
+
+    const toggleLanguage = () => {
+        currentLang = currentLang === 'en' ? 'hi' : 'en';
+        const label = currentLang === 'en' ? '🌐 EN' : '🌐 हिंदी';
+        if (langToggle) langToggle.textContent = label;
+        if (langToggleMobile) langToggleMobile.textContent = currentLang === 'en' ? '🌐 English / हिंदी' : '🌐 हिंदी / English';
+        console.log('Language switched to:', currentLang);
+    };
+
+    if (langToggle) langToggle.addEventListener('click', toggleLanguage);
+    if (langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+
     console.log('Free Video Enhancer Online initialized! 🚀');
 });
+
